@@ -2,7 +2,6 @@
     "name": "my-app",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://github.com/dshot92/viewer_3d",
     "dependencies": {
         "@react-three/drei": "^9.56.25",
         "@react-three/fiber": "^8.11.2",
@@ -14,6 +13,10 @@
         "react-scripts": "5.0.1",
         "react-spinners": "^0.13.8",
         "web-vitals": "^2.1.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:dshot92/viewer_3d.git"
     },
     "scripts": {
         "start": "react-scripts start",
