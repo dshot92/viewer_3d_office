@@ -10,8 +10,6 @@ const Grid = () => {
 	];
 
 	const handleCardClick = (path) => {
-		// const root = ReactDOM.createRoot(document.getElementById("root"));
-		// root.render(<FiberContainer path={path} />);
 		const rootElement = document.getElementById("root");
 		const root = createRoot(rootElement);
 		root.render(<FiberContainer path={path} />);
