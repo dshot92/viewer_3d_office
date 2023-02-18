@@ -1,8 +1,6 @@
 <!-- ![img_4286a-350x233](public\logo_bunny.gif) -->
 
-
-#<img src="public\logo_bunny.gif" width="" height="50"> Online 3D Viewer
-
+# <img src="public\logo_bunny.ico" width="40" height="40"> Online 3D Viewer
 
 [Deployment Website](https://viewer-3d-one.vercel.app/)
 
