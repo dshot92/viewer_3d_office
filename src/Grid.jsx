@@ -7,6 +7,8 @@ const Grid = () => {
 		{ id: 1, title: "Elephant Tower Raw", path: "./models/Elephant_Tower.fbx" },
 		{ id: 2, title: "Elephant Tower Remesh", path: "./models/Elephant_Tower_Remesh.fbx" },
 		{ id: 3, title: "Big Ben Solid", path: "./models/Big_Ben_Solid.fbx" },
+		{ id: 4, title: "T Hotel Solid", path: "./models/T_Hotel.fbx" },
+		
 	];
 
 	const handleCardClick = (path) => {
