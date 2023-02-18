@@ -1,20 +1,13 @@
 import "./App.css";
 import { React } from "react";
 import Grid from "./Grid";
-import { FiberContainer } from "./FiberContainer";
-import { Router, Routes, Route } from "react-router-dom";
-
-import { useLocation } from "react-router-dom";
 
 function App() {
-    // const location = useLocation();
-    // const params = new URLSearchParams(location.search);
-    return (
-        <div className="App">
-            <Grid />
-            {/* <FiberContainer path={params.get("model")} /> */}
-        </div>
-    );
+	return (
+		<div className="App">
+			<Grid />
+		</div>
+	);
 }
 
 export default App;
