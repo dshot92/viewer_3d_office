@@ -5,14 +5,7 @@ import ReactDOM from "react-dom";
 const Grid = () => {
 	const items = [
         { id: 1, title: "test.fbx", description: "This is item 1.", path: "./models/test.fbx" },
-        { id: 2, title: "test2.fbx", description: "This is item 2.", path: "./models/test2.fbx" },
-        { id: 3, title: "Atlantic_Avenue_Beach_v001.fbx", description: "This is item 3.", path: "./models/Atlantic_Avenue_Beach_v001.fbx" },
-        { id: 4, title: "test2.fbx", description: "This is item 2.", path: "./models/test2.fbx" },
-        { id: 5, title: "test2.fbx", description: "This is item 2.", path: "./models/test2.fbx" },
-        { id: 6, title: "test2.fbx", description: "This is item 2.", path: "./models/test2.fbx" },
-        { id: 7, title: "test2.fbx", description: "This is item 2.", path: "./models/test2.fbx" },
-        { id: 8, title: "test2.fbx", description: "This is item 2.", path: "./models/test2.fbx" },
-        { id: 9, title: "Test_low.fbx", description: "This is item 2.", path: "./models/Test_low.fbx" },
+        { id: 2, title: "Test_low.fbx", description: "This is item 2.", path: "./models/Test_low.fbx" },
     ];
 
     const handleCardClick = (path) => {
