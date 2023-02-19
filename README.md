@@ -24,13 +24,13 @@ To add a new mesh (fbx format) append a new object with the corresponding info i
 ...
 const Grid = () => {
 	const items = [
-        { id: 1, name: "test.fbx", description: "This is item 1.", path: "./models/test.fbx" },
-        { id: 2, name: "Test_low.fbx", description: "This is item 2.", path: "./models/Test_low.fbx" },
+        { id: 1, name: "test.fbx", path: "./models/test.fbx" },
+        { id: 2, name: "Test_low.fbx", path: "./models/Test_low.fbx" },
         ...
         .
         .
         ...
-        { id: N, name: "<new object>", description: "<new object description>", path: "./models/<new object>.fbx" },
+        { id: N, name: "<new object>", path: "./models/<new object>.fbx" },
     ];
 ...
 ```
