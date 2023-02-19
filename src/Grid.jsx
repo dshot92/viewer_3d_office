@@ -34,7 +34,7 @@ const Grid = () => {
 		{ id: 3, name: "Big Ben Solid", path: "./models/Big_Ben_Solid.fbx" },
 		{ id: 4, name: "T Hotel Solid", path: "./models/T_Hotel.fbx" },
 		{ id: 5, name: "Arc de Triomphe", path: "./models/Arc_de_Triomphe.fbx" },
-		{ id: 6, name: "Monteclaro Solid Layers", path: "./Models/Monteclaro_Solid_Layers.fbx" },
+		{ id: 6, name: "Monteclaro Solid Layers", path: "./models/Monteclaro_Solid_Layers.fbx" },
 	];
 
 	const handleCardClick = (path) => {
