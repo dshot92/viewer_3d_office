@@ -1,8 +1,9 @@
 import Card from "./Card";
-import { useState, useEffect } from "react";
 import { FiberContainer } from "./FiberContainer";
 import { createRoot } from "react-dom/client";
-import axios from "axios";
+
+// import axios from "axios";
+// import { useState, useEffect } from "react";
 
 // const MODEL_FOLDER = "./models/";
 // const FILE_EXTENSION = ".fbx";
@@ -29,11 +30,11 @@ const Grid = () => {
 	// }, []);
 
 	const items = [
-		{ id: 1, title: "Elephant Tower Raw", path: "./models/Elephant_Tower.fbx" },
-		{ id: 2, title: "Elephant Tower Remesh", path: "./models/Elephant_Tower_Remesh.fbx" },
-		{ id: 3, title: "Big Ben Solid", path: "./models/Big_Ben_Solid.fbx" },
-		{ id: 4, title: "T Hotel Solid", path: "./models/T_Hotel.fbx" },
-		{ id: 5, title: "Arc de Triomphe", path: "./models/Arc_de_Triomphe.fbx" },
+		{ id: 1, name: "Elephant Tower Raw", path: "./models/Elephant_Tower.fbx" },
+		{ id: 2, name: "Elephant Tower Remesh", path: "./models/Elephant_Tower_Remesh.fbx" },
+		{ id: 3, name: "Big Ben Solid", path: "./models/Big_Ben_Solid.fbx" },
+		{ id: 4, name: "T Hotel Solid", path: "./models/T_Hotel.fbx" },
+		{ id: 5, name: "Arc de Triomphe", path: "./models/Arc_de_Triomphe.fbx" },
 	];
 
 	const handleCardClick = (path) => {
