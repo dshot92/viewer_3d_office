@@ -15,7 +15,6 @@ const Grid = () => {
 			.get(MODEL_FOLDER)
 			.then((response) => {
 				const fbxFiles = response.data
-					.sort((a, b) => new Date(b.created) - new Date(a.created))
 					.filter((file) => file && file.endsWith && file.endsWith(FILE_EXTENSION))
 					// .sort((a, b) => new Date(a.modifiedDate) - new Date(b.modifiedDate))
 					.map((file, index) => ({
