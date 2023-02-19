@@ -16,7 +16,7 @@ const Grid = () => {
 		axios
 			.get(MODEL_FOLDER)
 			.then((response) => {
-				const fbxFiles = Object.values(response.data).map((file, index) => ({
+				const fbxFiles = Object.keys(response.data).map((file, index) => ({
 					id: index + 1,
 					path: `${MODEL_FOLDER}/${file}`,
 					name: file,
