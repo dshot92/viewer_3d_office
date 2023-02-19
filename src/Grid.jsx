@@ -33,7 +33,7 @@ const Grid = () => {
 		{ id: 2, title: "Elephant Tower Remesh", path: "./models/Elephant_Tower_Remesh.fbx" },
 		{ id: 3, title: "Big Ben Solid", path: "./models/Big_Ben_Solid.fbx" },
 		{ id: 4, title: "T Hotel Solid", path: "./models/T_Hotel.fbx" },
-		{ id: 4, title: "Arc de Triomphe", path: "./models/Arc_de_Triomphe.fbx" },
+		{ id: 5, title: "Arc de Triomphe", path: "./models/Arc_de_Triomphe.fbx" },
 	];
 
 	const handleCardClick = (path) => {
