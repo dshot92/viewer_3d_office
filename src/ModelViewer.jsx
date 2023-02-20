@@ -21,7 +21,7 @@ const ModelViewer = (props) => {
 	return (
 		<Suspense fallback={<Loading />}>
 			<ViewerBackArrow />
-			<Canvas flat dpr={2} shadows={false} camera={{ position: cameraPosition, zoom: cameraZoom, fov: cameraFov, near: cameraNearClip, far: cameraFarClip }}>
+			<Canvas dpr={2} shadows={false} camera={{ position: cameraPosition, zoom: cameraZoom, fov: cameraFov, near: cameraNearClip, far: cameraFarClip }}>
 				<ambientLight intensity={1} />
 				<Model fbxPath={props.fbxPath} position={modelPosition} scale={modelScale} />
 				{/* <Sky distance={450000} sunPosition={[0, 1000, 0]} inclination={0} azimuth={0.25} /> */}
