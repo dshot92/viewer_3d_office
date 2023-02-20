@@ -37,6 +37,7 @@ const Grid = () => {
 		{ id: 6, name: "Monteclaro Solid Layers", path: "./models/Monteclaro_Solid_Layers.fbx" },
 		{ id: 7, name: "Cagliari Museum Solid", path: "./models/Cagliari_Museum_Solid.fbx" },
 		{ id: 8, name: "Christ the Redeemer", path: "./models/Christ_the_Redeemer.fbx" },
+		{ id: 9, name: "San Marino Solid", path: "./models/San_Marino_Solid.fbx" },
 	];
 
 	const handleCardClick = (path) => {
