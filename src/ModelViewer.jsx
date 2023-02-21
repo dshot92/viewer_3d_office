@@ -2,7 +2,7 @@ import { React } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { CameraControls } from "@react-three/drei";
-import { Sky } from "@react-three/drei";
+// import { Sky } from "@react-three/drei";
 
 import Model from "./Model";
 import Loading from "./Loading";
@@ -21,7 +21,7 @@ const ModelViewer = (props) => {
 	return (
 		<Suspense fallback={<Loading />}>
 			<ViewerBackArrow />
-			<Canvas dpr={2} shadows={false} camera={{ position: cameraPosition, zoom: cameraZoom, fov: cameraFov, near: cameraNearClip, far: cameraFarClip }}>
+			<Canvas camera={{ position: cameraPosition, zoom: cameraZoom, fov: cameraFov, near: cameraNearClip, far: cameraFarClip }}>
 				<ambientLight intensity={1} />
 				<Model fbxPath={props.fbxPath} position={modelPosition} scale={modelScale} />
 				{/* <Sky distance={450000} sunPosition={[0, 1000, 0]} inclination={0} azimuth={0.25} /> */}

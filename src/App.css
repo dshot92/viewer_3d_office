@@ -1,7 +1,24 @@
-.App {
-	width: 100%;
-	height: 100%;
-	background-color: black;
+:root {
+  --main-bg-color:                 rgb( 19,  19,  19);
+  --main-button-color:             rgb(22, 22, 22);
+  --main-button-color-hover:       rgb(30, 30, 30);
+
+  --main-text-color:               rgb(156, 156, 156);
+  --main-text-color-hover:         rgb(255, 255, 255);
+  --main-text-color-hover-glow-white:rgb(205, 205, 205);
+  --main-text-color-hover-glow-blue:rgb(166, 209, 211);
+
+  --main-bg-color_shadow:          rgb(  0,   0,   0);
+  --main-bg-color_highlight:       rgb( 93,  93,  93);
+
+  --main-border-color:             rgb(255, 255, 255);
+  --main-transition-time:                         0.75s;
+}
+
+*  {
+    background-color: var(--main-bg-color);
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
 }
 
 .Loader {
@@ -13,8 +30,37 @@
 }
 
 .back {
-	position: absolute;
-	margin: 1rem 2rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 	z-index: 10000;
-	font-size: 2.5rem;
+	margin: 3rem;
+    padding: 2rem;
+    border: none;
+
+    line-height: 1rem;
+    text-align: center;
+
+    background-color: var(--main-button-color);
+    color:  var(--main-text-color);
+    border-radius: 50%;
+
+    box-shadow:  0px 0px 50px black, /* Big Shadow to show over mesh*/
+                 1px 1px 2px var(--main-bg-color_shadow),
+                -1px -1px 2px var(--main-bg-color_highlight);
+
+    transition: var(--main-transition-time) ease;
+}
+
+.back:hover {
+    background-color: var(--main-button-color-hover);
+
+    color: var(--main-text-color-hover);
+
+    box-shadow:  0px 0px 50px black, /* Big Shadow to show over mesh*/
+                 2px 2px 4px var(--main-bg-color_highlight),
+                -2px -2px 4px var(--main-bg-color_shadow);
+
+    text-shadow: 0px 0px  5px var(--main-text-color-hover-glow-white),
+                 0px 0px 15px var(--main-text-color-hover-glow-blue);
 }

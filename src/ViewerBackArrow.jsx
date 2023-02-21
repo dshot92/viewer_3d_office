@@ -11,8 +11,8 @@ const getBack = () => {
 
 const ViewerBackArrow = () => {
 	return (
-		<div className={"back"}>
-			<span onClick={getBack}>&#x2190;</span>
+		<div className={"back"} onClick={getBack}>
+			<i className="fa-solid fa-arrow-left"></i>
 		</div>
 	);
 };
