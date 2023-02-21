@@ -39,6 +39,7 @@ const Grid = () => {
 		{ id: 7, name: "Cagliari Museum Solid", fbxPath: "./models/Cagliari_Museum_Solid.fbx" },
 		{ id: 8, name: "Christ the Redeemer", fbxPath: "./models/Christ_the_Redeemer.fbx" },
 		{ id: 9, name: "San Marino Solid", fbxPath: "./models/San_Marino_Solid.fbx" },
+		{ id: 10, name: "Altare della Patria Solid", fbxPath: "./models/Altare_della_Patria_Solid.fbx" },
 	];
 
 	const handleCardClick = (fbxPath) => {
