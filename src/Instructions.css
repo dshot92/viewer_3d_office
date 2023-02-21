@@ -6,9 +6,12 @@
     width: 1.5rem;
 	z-index: 10000;
     line-height: 2rem;
+    background-color: transparent;
+
 }
 
 .mouse {
+    background-color: transparent;
     display: inline-flex;
 }
 
@@ -16,11 +19,9 @@
     display: none;
 }
 
-.instrictions > img {
-    fill:var(--main-bg-color_highlight);
-}
-
 svg {
+    background-color: transparent;
+
     fill:var(--main-text-color-hover);
     height: 2rem;
     min-width: 2rem;
