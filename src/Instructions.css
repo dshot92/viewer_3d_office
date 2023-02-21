@@ -1,0 +1,54 @@
+.instrictions {
+    color: white;
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    width: 1.5rem;
+	z-index: 10000;
+    line-height: 2rem;
+}
+
+.mouse {
+    display: inline-flex;
+}
+
+.Mobile {
+    display: none;
+}
+
+.instrictions > img {
+    fill:var(--main-bg-color_highlight);
+}
+
+svg {
+    fill:var(--main-text-color-hover);
+    height: 2rem;
+    min-width: 2rem;
+    max-width: 2rem;
+    padding-right: 10px;
+}
+
+.left #left {
+    fill:var(--main-bg-color_highlight);
+}
+
+.wheel #wheel {
+    fill:var(--main-bg-color_highlight);
+}
+
+.right #right {
+    fill:var(--main-bg-color_highlight);
+}
+
+
+@media (max-width: 600px) {
+
+    .Desktop {
+        display:none;
+    }
+
+    .Mobile {
+        display: inline;
+        inline-size: 50%;
+    }
+}

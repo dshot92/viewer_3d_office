@@ -1,12 +1,13 @@
 import React from "react";
-import "./index.css";
-import "./Grid.css";
-import App from "./App";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 
-// const root = ReactDOM.createRoot(document.getElementById("root"));
+import App from "./App";
+
+import "./index.css";
+import "./Grid.css";
+import "./Instructions.css";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);

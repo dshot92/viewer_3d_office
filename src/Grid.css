@@ -17,8 +17,8 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 
-    background-color: var(--main-button-color);
     color:  var(--main-text-color);
+    background-color: var(--main-button-color);
 
     border-radius: 80px;
     box-shadow:  2px 2px 4px var(--main-bg-color_shadow),
@@ -46,4 +46,5 @@
 	.card {
         width: 100%;
 	}
+
 }

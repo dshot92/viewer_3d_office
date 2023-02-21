@@ -1,12 +1,12 @@
 import { React } from "react";
 import { BeatLoader } from "react-spinners";
 
-const Loading = () => {
+const Instructions = () => {
 	return (
-		<div className="Loader">
+		<div className="loader">
 			<BeatLoader color="#ffffff" />
 		</div>
 	);
 };
 
-export default Loading;
+export default Instructions;
