@@ -1,9 +1,7 @@
-import { React } from "react";
-
-const Card = ({ title, onClick }) => {
+const Card = (props) => {
 	return (
-		<button className="card" onClick={onClick}>
-			<span>{title}</span>
+		<button className="card">
+			<span>{props.name}</span>
 		</button>
 	);
 };

@@ -1,10 +1,13 @@
-import { React } from "react";
 import { useFBX } from "@react-three/drei";
 
 const Model = (props) => {
-	let fbxModel = useFBX(props.fbxPath);
+	const fbxPath = props.fbxPath;
 
-	console.log(fbxModel);
+	// console.log("Model -> fbxPath:", fbxPath);
+
+	let fbxModel = useFBX(fbxPath);
+
+	// console.log(fbxModel);
 
 	if (!fbxModel.boundingSphere) {
 		fbxModel.children[0].geometry.computeBoundingSphere();
