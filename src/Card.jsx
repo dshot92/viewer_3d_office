@@ -1,4 +1,3 @@
-import "./Grid.css";
 import { React } from "react";
 
 const Card = ({ title, onClick }) => {

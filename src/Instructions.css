@@ -1,4 +1,4 @@
-.instrictions {
+.instructions {
     color: white;
     position: absolute;
     left: 2rem;
@@ -7,7 +7,7 @@
 	z-index: 10000;
     line-height: 2rem;
     background-color: transparent;
-
+    
 }
 
 .mouse {
@@ -15,8 +15,9 @@
     display: inline-flex;
 }
 
-.Mobile {
-    display: none;
+.instructions.mobile {
+    inline-size: 50%;
+    display: inline;
 }
 
 svg {
@@ -39,17 +40,4 @@ svg {
 
 .right #right {
     fill:var(--main-bg-color_highlight);
-}
-
-
-@media (max-width: 600px) {
-
-    .Desktop {
-        display:none;
-    }
-
-    .Mobile {
-        display: inline;
-        inline-size: 50%;
-    }
 }

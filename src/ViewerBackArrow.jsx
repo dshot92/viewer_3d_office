@@ -1,12 +1,12 @@
 import { React } from "react";
 import { createRoot } from "react-dom/client";
 
-import Grid from "./Grid";
+import App from "./App";
 
 const getBack = () => {
 	const rootElement = document.getElementById("root");
 	const root = createRoot(rootElement);
-	root.render(<Grid />);
+	root.render(<App />);
 };
 
 const ViewerBackArrow = () => {

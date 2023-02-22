@@ -1,6 +1,7 @@
 import { React } from "react";
 import { BeatLoader } from "react-spinners";
 
+
 const Instructions = () => {
 	return (
 		<div className="loader">

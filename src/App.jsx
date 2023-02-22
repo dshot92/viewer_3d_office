@@ -3,32 +3,7 @@ import { createRoot } from "react-dom/client";
 import Card from "./Card";
 import ModelViewer from "./ModelViewer";
 
-// import axios from "axios";
-// import { useState, useEffect } from "react";
-
-// const MODEL_FOLDER = "./models/";
-// const FILE_EXTENSION = ".fbx";
-
-const Grid = () => {
-	// const [items, setFiles] = useState([]);
-
-	// useEffect(() => {
-	// 	// .filter((file) => file && file.endsWith && file.endsWith(FILE_EXTENSION))
-	// 	axios
-	// 		.get(MODEL_FOLDER)
-	// 		.then((response) => {
-	// 			const fbxFiles = response.data.content.map((file, index) => ({
-	// 				id: index + 1,
-	// 				path: `${MODEL_FOLDER}/${file}`,
-	// 				name: file,
-	// 			}));
-	// 			setFiles(fbxFiles);
-	// 		})
-	// 		.catch((error) => {
-	// 			console.error(error);
-	// 		});
-	// }, []);
-
+const App = () => {
 	const items = [
 		{ id: 1, name: "Elephant Tower Raw", fbxPath: "./models/Elephant_Tower.fbx" },
 		{ id: 2, name: "Elephant Tower Remesh", fbxPath: "./models/Elephant_Tower_Remesh.fbx" },
@@ -60,4 +35,4 @@ const Grid = () => {
 	);
 };
 
-export default Grid;
+export default App;

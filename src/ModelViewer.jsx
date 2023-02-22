@@ -6,8 +6,7 @@ import { CameraControls } from "@react-three/drei";
 
 import Model from "./Model";
 import Loading from "./Loading";
-import InstructionsDekstop from "./InstructionsDekstop";
-import InstructionsMobile from "./InstructionsMobile";
+import Instructions from "./Instructions";
 import ViewerBackArrow from "./ViewerBackArrow";
 
 const ModelViewer = (props) => {
@@ -23,8 +22,7 @@ const ModelViewer = (props) => {
 	return (
 		<Suspense fallback={<Loading />}>
 			<ViewerBackArrow />
-			<InstructionsDekstop />
-			<InstructionsMobile />
+			<Instructions />
 			<Canvas camera={{ position: cameraPosition, zoom: cameraZoom, fov: cameraFov, near: cameraNearClip, far: cameraFarClip }}>
 				<ambientLight intensity={1} />
 				<Model fbxPath={props.fbxPath} position={modelPosition} scale={modelScale} />
