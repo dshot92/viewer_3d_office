@@ -8,8 +8,8 @@ const App = () => {
 	return (
 		<Routes>
 			<Route exact path="/" element={<Grid />} />
-			<Route exact path={"/models/:fbxPath"} element={<ModelViewer />} />
-			<Route path="/*" element={<NotFound />} />
+			<Route path=":fbxName" element={<ModelViewer />} />
+			<Route path="*" element={<NotFound />} />
 		</Routes>
 	);
 };

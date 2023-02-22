@@ -1,11 +1,11 @@
 import { useFBX } from "@react-three/drei";
 
 const Model = (props) => {
-	const fbxPath = props.fbxPath;
+	const fbxFile = props.path;
 
 	// console.log("Model -> fbxPath:", fbxPath);
 
-	let fbxModel = useFBX(fbxPath);
+	let fbxModel = useFBX(fbxFile);
 
 	// console.log(fbxModel);
 
