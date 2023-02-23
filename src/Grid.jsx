@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 import Card from "./Card";
 
-const Grid = () => {
-	const items = [
+export const itemsList = () => {
+	const list = [
 		{ id: 1, name: "Elephant Tower Raw", fbxPath: "/models/Elephant_Tower.fbx" },
 		{ id: 2, name: "Elephant Tower Remesh", fbxPath: "/models/Elephant_Tower_Remesh.fbx" },
 		{ id: 3, name: "Big Ben Solid", fbxPath: "/models/Big_Ben_Solid.fbx" },
@@ -16,6 +16,11 @@ const Grid = () => {
 		{ id: 10, name: "Altare della Patria Solid", fbxPath: "/models/Altare_della_Patria_Solid.fbx" },
 		{ id: 11, name: "John Hopkins Uni Solid", fbxPath: "/models/John_Hopkins_Uni_Solid.fbx" },
 	];
+	return list;
+};
+
+const Grid = () => {
+	const items = itemsList();
 	return (
 		<div className="container">
 			<div className="grid">

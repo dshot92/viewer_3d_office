@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { CameraControls } from "@react-three/drei";
@@ -9,12 +9,18 @@ import Loading from "./Loading";
 import Instructions from "./Instructions";
 import ViewerBackArrow from "./ViewerBackArrow";
 
+import { itemsList } from "./Grid";
+
 const ModelViewer = () => {
-	const location = useLocation();
+	const items = itemsList();
 
-	const fbxPath = location.state;
+	const { name } = useParams();
 
-	// console.log("ModelViewer -> fbxPath param:", fbxPath);
+	var found = items.filter(function (item) {
+		return item.name === name;
+	});
+
+	const fbxPath = found[0].fbxPath;
 
 	let cameraFov = 50;
 	let cameraPosition = [10, 10, 10];
