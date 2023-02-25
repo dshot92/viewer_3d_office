@@ -34,3 +34,12 @@ const Grid = () => {
     ];
 ...
 ```
+
+## Billboards
+
+Add Objects in the fbx with this naming scheme:
+
+```
+billboard${Name}
+```
+

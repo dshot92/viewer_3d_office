@@ -15,6 +15,7 @@ export const itemsList = () => {
 		{ id: 9, name: "San Marino Solid", fbxPath: "/models/San_Marino_Solid.fbx" },
 		{ id: 10, name: "Altare della Patria Solid", fbxPath: "/models/Altare_della_Patria_Solid.fbx" },
 		{ id: 11, name: "John Hopkins Uni Solid", fbxPath: "/models/John_Hopkins_Uni_Solid.fbx" },
+		{ id: 12, name: "Monteclaro Solid Billboards", fbxPath: "/models/Monteclaro_Solid_Layers_Billboards.fbx" },
 	];
 	return list;
 };

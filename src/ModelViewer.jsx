@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { CameraControls } from "@react-three/drei";
@@ -39,7 +39,9 @@ const ModelViewer = () => {
 				<ambientLight intensity={1} />
 				<Model path={fbxPath} position={modelPosition} scale={modelScale} />
 				{/* <Sky distance={450000} sunPosition={[0, 1000, 0]} inclination={0} azimuth={0.25} /> */}
-				<CameraControls />
+				<CameraControls
+				// maxPolarAngle={Math.PI / 2} //Limit view to horizon
+				/>
 			</Canvas>
 		</Suspense>
 	);
