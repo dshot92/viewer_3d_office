@@ -3,9 +3,7 @@ import { useFBX } from "@react-three/drei";
 import ModelBillboards from "./ModelBillboards";
 
 const Model = (props) => {
-	const fbxFile = props.path;
-	let fbxModel = useFBX(fbxFile);
-	// console.log(fbxModel);
+	const fbxModel = useFBX(props.path);
 
 	if (!fbxModel.boundingSphere) {
 		fbxModel.children[0].geometry.computeBoundingSphere();
