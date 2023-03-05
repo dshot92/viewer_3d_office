@@ -73,9 +73,9 @@ const ModelViewer = () => {
 				>
 					<Stars radius={distance} depth={50} count={stars ? 10000 : 0} factor={1} fade saturation={1} speed={0.5} noise={0.5} />
 				</Sky>
-				{/* <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
+				<GizmoHelper alignment="bottom-right" margin={[80, 80]}>
 					<GizmoViewport axisColors={["#9d4b4b", "#2f7f4f", "#3b5b9d"]} labelColor="white" />
-				</GizmoHelper> */}
+				</GizmoHelper>
 			</Canvas>
 		</Suspense>
 	);

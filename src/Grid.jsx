@@ -18,6 +18,8 @@ export const itemsList = () => {
 		{ id: 12, name: "Monteclaro Solid Billboards", fbxPath: "/models/Monteclaro_Solid_Layers_Billboards.fbx" },
 		{ id: 13, name: "Bologna Towers", fbxPath: "/models/Bologna_Towers.fbx" },
 		{ id: 14, name: "Santuario San Luca", fbxPath: "/models/Santuario_San_Luca.fbx" },
+		{ id: 15, name: "Sella del Diavolo", fbxPath: "/models/Sella_del_Diavolo.fbx" },
+		{ id: 16, name: "Allianz Stadium", fbxPath: "/models/Allianz_Stadium.fbx" },
 	];
 	return list;
 };
