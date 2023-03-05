@@ -2,12 +2,11 @@
     color: white;
     position: absolute;
     left: 2rem;
-    top: 2rem;
+    bottom: 2rem;
     width: 1.5rem;
-	z-index: 10000;
+	z-index: 2;
     line-height: 2rem;
     background-color: transparent;
-    
 }
 
 .mouse {
