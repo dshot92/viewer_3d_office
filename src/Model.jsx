@@ -5,7 +5,7 @@ import ModelBillboards from "./ModelBillboards";
 
 import { itemsList } from "./Grid";
 
-const Model = () => {
+const Model = (props) => {
 	const items = itemsList();
 
 	const { name } = useParams();
@@ -20,7 +20,7 @@ const Model = () => {
 		fbxModel.children[0].geometry.computeBoundingSphere();
 	}
 
-	let boundingSphereRadius = fbxModel.children[0].geometry.boundingSphere.radius;
+	// let boundingSphereRadius = fbxModel.children[0].geometry.boundingSphere.radius;
 	// let norm_value = boundingSphereRadius * 20;
 	let norm_value = 10000;
 
@@ -28,8 +28,9 @@ const Model = () => {
 
 	return (
 		<>
-			<ModelBillboards object={fbxModel} />
-			<mesh scale={normalizedScale} position={[0, 0, 0]}>
+			{props.showBillsBoards ? <ModelBillboards object={fbxModel} /> : <></>}
+
+			<mesh scale={normalizedScale} position={[0, 0, 0]} autorotate={true}>
 				<primitive object={fbxModel} dispose={null} />
 			</mesh>
 		</>

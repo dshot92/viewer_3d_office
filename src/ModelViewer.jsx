@@ -1,12 +1,12 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import { OrbitControls, Sky, Stars, PerspectiveCamera, Center, GizmoHelper, GizmoViewport, Environment } from "@react-three/drei";
+import { OrbitControls, Sky, Stars, PerspectiveCamera, Center, GizmoHelper, GizmoViewport } from "@react-three/drei";
 import { useControls } from "leva";
 
 import Model from "./Model";
 import Loading from "./Loading";
-import Instructions from "./Instructions";
-import ViewerBackArrow from "./ViewerBackArrow";
+// import Instructions from "./Instructions";
+// import ViewerBackArrow from "./ViewerBackArrow";
 
 // https://codesandbox.io/s/19uq2u?file=/src/App.js:254-258
 
@@ -26,8 +26,12 @@ export function calcPosFromAngles(inclination, azimuth) {
 
 const ModelViewer = () => {
 	// Leva controls
-	const { cameraFov } = useControls({
+	const { cameraFov, day, stars, autoRotate, POI } = useControls({
 		cameraFov: { value: 35, min: 2, max: 150, step: 0.1 },
+		day: { value: 0, min: 0, max: 0.25, step: 0.0001 },
+		stars: true,
+		autoRotate: false,
+		POI: false,
 	});
 
 	// const { distance, inclination, azimuth, mieCoefficient, mieDirectionalG, rayleigh, turbidity } = useControls({
@@ -45,11 +49,6 @@ const ModelViewer = () => {
 	let azimuth = 0.5;
 	let mieCoefficient = 0.005;
 	let mieDirectionalG = 0.98;
-	let turbidity = 0;
-
-	const { Day } = useControls({
-		Day: { value: 0, min: 0, max: 0.25, step: 0.01 },
-	});
 
 	return (
 		<Suspense fallback={<Loading />}>
@@ -58,9 +57,9 @@ const ModelViewer = () => {
 			<Canvas>
 				<ambientLight intensity={1} />
 				<Center disableY>
-					<Model />
+					<Model showBillsBoards={POI} />
 				</Center>
-				<OrbitControls makeDefault /* maxPolarAngle={Math.PI / 2} */ />
+				<OrbitControls makeDefault autoRotate={autoRotate} /* maxPolarAngle={Math.PI / 2} */ />
 				<PerspectiveCamera makeDefault fov={cameraFov} position={[10, 10, 10]} near={0.1} far={10000000} />
 				<Sky
 					distance={distance}
@@ -69,14 +68,14 @@ const ModelViewer = () => {
 					azimuth={azimuth}
 					mieCoefficient={mieCoefficient}
 					mieDirectionalG={mieDirectionalG}
-					rayleigh={Day}
-					turbidity={Day}
+					rayleigh={day}
+					turbidity={day}
 				>
-					<Stars radius={10.0} depth={50} count={5000} factor={40} saturation={1} fade speed={1} noise={1000} />
+					<Stars radius={distance} depth={50} count={stars ? 10000 : 0} factor={1} fade saturation={1} speed={0.5} noise={0.5} />
 				</Sky>
-				<GizmoHelper alignment="bottom-right" margin={[80, 80]}>
+				{/* <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
 					<GizmoViewport axisColors={["#9d4b4b", "#2f7f4f", "#3b5b9d"]} labelColor="white" />
-				</GizmoHelper>
+				</GizmoHelper> */}
 			</Canvas>
 		</Suspense>
 	);
