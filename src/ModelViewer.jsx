@@ -1,16 +1,12 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import { OrbitControls, Sky, Stars, PerspectiveCamera, Center, GizmoHelper, GizmoViewport } from "@react-three/drei";
+import { Bounds, OrbitControls, Sky, Stars, PerspectiveCamera, Center, GizmoHelper, GizmoViewport } from "@react-three/drei";
 import { useControls } from "leva";
 
 import Model from "./Model";
 import Loading from "./Loading";
-// import Instructions from "./Instructions";
-// import ViewerBackArrow from "./ViewerBackArrow";
 
 // https://codesandbox.io/s/19uq2u?file=/src/App.js:254-258
-
-// https://threejs.org/examples/#webgl_shaders_sky
 
 export function calcPosFromAngles(inclination, azimuth) {
 	const vector = [0, 0, 0];
@@ -27,28 +23,24 @@ export function calcPosFromAngles(inclination, azimuth) {
 const ModelViewer = () => {
 	// Leva controls
 	const { cameraFov, day, stars, autoRotate, POI } = useControls({
-		cameraFov: { value: 35, min: 2, max: 150, step: 0.1 },
+		cameraFov: { value: 35, min: 2, max: 150, step: 0.001 },
 		day: { value: 0, min: 0, max: 0.25, step: 0.0001 },
 		stars: true,
 		autoRotate: false,
 		POI: false,
 	});
 
-	// const { distance, inclination, azimuth, mieCoefficient, mieDirectionalG, rayleigh, turbidity } = useControls({
-	// 	distance: { value: 1000000, min: 0, max: 1000000, step: 0.001 },
-	// 	inclination: { value: 0.66, min: 0.48, max: 1, step: 0.01 },
-	// 	azimuth: { value: 0.5, min: 0, max: 1, step: 0.001 },
-	// 	mieCoefficient: { value: 0.005, min: 0, max: 0.1, step: 0.001 },
-	// 	mieDirectionalG: { value: 0.98, min: 0, max: 1, step: 0.001 },
-	// 	rayleigh: { value: 0, min: 0, max: 0.25, step: 0.0001 },
-	// 	turbidity: { value: 0, min: 0, max: 0.25, step: 0.001 },
-	// });
-
-	let distance = 1000000;
+	// https://threejs.org/examples/#webgl_shaders_sky
+	let cameraPos = [50, 50, 50];
+	let near = 10;
+	let distance = 10000000;
 	let inclination = 0.66;
 	let azimuth = 0.5;
 	let mieCoefficient = 0.005;
 	let mieDirectionalG = 0.98;
+
+	// Bounds example:
+	// https://codesandbox.io/s/bounds-and-makedefault-rz2g0?file=/src/App.js
 
 	return (
 		<Suspense fallback={<Loading />}>
@@ -56,11 +48,13 @@ const ModelViewer = () => {
 			{/* <Instructions /> */}
 			<Canvas>
 				<ambientLight intensity={1} />
-				<Center disableY>
-					<Model showBillsBoards={POI} />
-				</Center>
-				<OrbitControls makeDefault autoRotate={autoRotate} /* maxPolarAngle={Math.PI / 2} */ />
-				<PerspectiveCamera makeDefault fov={cameraFov} position={[10, 10, 10]} near={0.1} far={10000000} />
+				<Bounds fit clip observe margin={1.2}>
+					<Center>
+						<Model showBillsBoards={POI} />
+					</Center>
+				</Bounds>
+				<OrbitControls autoRotate={autoRotate} /* maxPolarAngle={Math.PI / 2} */ />
+				<PerspectiveCamera makeDefault fov={cameraFov} position={cameraPos} near={near} far={distance} />
 				<Sky
 					distance={distance}
 					sunPosition={calcPosFromAngles(inclination, azimuth)}
@@ -73,9 +67,12 @@ const ModelViewer = () => {
 				>
 					<Stars radius={distance} depth={50} count={stars ? 10000 : 0} factor={1} fade saturation={1} speed={0.5} noise={0.5} />
 				</Sky>
-				<GizmoHelper alignment="bottom-right" margin={[80, 80]}>
-					<GizmoViewport axisColors={["#9d4b4b", "#2f7f4f", "#3b5b9d"]} labelColor="white" />
-				</GizmoHelper>
+
+				{false && (
+					<GizmoHelper alignment="bottom-right" margin={[80, 80]}>
+						<GizmoViewport axisColors={["#9d4b4b", "#2f7f4f", "#3b5b9d"]} labelColor="white" />
+					</GizmoHelper>
+				)}
 			</Canvas>
 		</Suspense>
 	);
