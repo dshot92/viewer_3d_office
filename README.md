@@ -1,4 +1,4 @@
-<!-- ![img_4286a-350x233](public\logo_bunny.gif) -->
+<!-- ![img_4286a-350x233](public\logo192.jpg) -->
 
 # <img src="public\logo_bunny.ico" width="40" height="40"> Online 3D Viewer
 

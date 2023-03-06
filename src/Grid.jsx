@@ -20,6 +20,9 @@ const Grid = () => {
 	const items = itemsList();
 	return (
 		<div className="container">
+			<div className="gridTitle">
+				<h1>Viewer-3D</h1>
+			</div>
 			<div className="grid">
 				{items.map((item, index) => (
 					<Link key={index} to={item.name} state={item.fbxPath}>
