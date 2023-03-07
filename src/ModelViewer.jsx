@@ -1,5 +1,5 @@
+import { Suspense, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
 import { Bounds, OrbitControls, Sky, Stars, PerspectiveCamera, Center, GizmoHelper, GizmoViewport } from "@react-three/drei";
 import { useControls } from "leva";
 
@@ -22,11 +22,10 @@ export function calcPosFromAngles(inclination, azimuth) {
 
 const ModelViewer = () => {
 	// Leva controls
-	const { cameraFov, day, stars, autoRotate, POI } = useControls({
-		cameraFov: { value: 35, min: 2, max: 150, step: 0.001 },
-		day: { value: 0, min: 0, max: 0.25, step: 0.0001 },
-		stars: true,
-		autoRotate: false,
+	const config = useControls({
+		cameraFov: { value: 35, min: 2, max: 150, step: 0.001, onChange: (v) => {}, transient: false },
+		day: { value: 0, min: 0, max: 0.25, step: 0.0001, onChange: (v) => {}, transient: false },
+		autoRotate: { value: false, onChange: (v) => {}, transient: false },
 		POI: false,
 	});
 
@@ -36,6 +35,7 @@ const ModelViewer = () => {
 	let distance = 10000000;
 	let inclination = 0.66;
 	let azimuth = 0.5;
+	let stars = 0;
 	let mieCoefficient = 0.005;
 	let mieDirectionalG = 0.98;
 
@@ -44,17 +44,15 @@ const ModelViewer = () => {
 
 	return (
 		<Suspense fallback={<Loading />}>
-			{/* <ViewerBackArrow /> */}
-			{/* <Instructions /> */}
 			<Canvas>
 				<ambientLight intensity={1} />
-				<Bounds fit clip observe margin={1.2}>
-					<Center>
-						<Model showBillsBoards={POI} />
-					</Center>
-				</Bounds>
-				<OrbitControls autoRotate={autoRotate} /* maxPolarAngle={Math.PI / 2} */ />
-				<PerspectiveCamera makeDefault fov={cameraFov} position={cameraPos} near={near} far={distance} />
+				<Center>
+					<Bounds fit clip observe margin={1.2}>
+						<Model showBillsBoards={config.POI} />
+					</Bounds>
+				</Center>
+				<OrbitControls autoRotate={config.autoRotate} /* maxPolarAngle={Math.PI / 2} */ />
+				<PerspectiveCamera makeDefault fov={config.cameraFov} position={cameraPos} near={near} far={distance} />
 				<Sky
 					distance={distance}
 					sunPosition={calcPosFromAngles(inclination, azimuth)}
@@ -62,12 +60,11 @@ const ModelViewer = () => {
 					azimuth={azimuth}
 					mieCoefficient={mieCoefficient}
 					mieDirectionalG={mieDirectionalG}
-					rayleigh={day}
-					turbidity={day}
+					rayleigh={config.day}
+					turbidity={config.day}
 				>
 					<Stars radius={distance} depth={50} count={stars ? 10000 : 0} factor={1} fade saturation={1} speed={0.5} noise={0.5} />
 				</Sky>
-
 				{false && (
 					<GizmoHelper alignment="bottom-right" margin={[80, 80]}>
 						<GizmoViewport axisColors={["#9d4b4b", "#2f7f4f", "#3b5b9d"]} labelColor="white" />
