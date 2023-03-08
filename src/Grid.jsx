@@ -12,6 +12,7 @@ export const itemsList = () => {
 		{ name: "Santuario San Luca", fbxPath: "/models/Santuario_San_Luca.fbx" },
 		{ name: "Sella del Diavolo", fbxPath: "/models/Sella_del_Diavolo.fbx" },
 		{ name: "Allianz Stadium", fbxPath: "/models/Allianz_Stadium.fbx" },
+		{ name: "Luxor Resort & Casino", fbxPath: "/models/Luxor.fbx" },
 	];
 	return list;
 };
