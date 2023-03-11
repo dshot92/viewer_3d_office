@@ -1,45 +1,75 @@
-import { useLocation, useParams } from "react-router-dom";
+import { Suspense, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import { CameraControls } from "@react-three/drei";
-// import { Sky } from "@react-three/drei";
+import { Bounds, OrbitControls, Sky, Stars, PerspectiveCamera, Center, GizmoHelper, GizmoViewport } from "@react-three/drei";
+import { useControls } from "leva";
 
 import Model from "./Model";
 import Loading from "./Loading";
-import Instructions from "./Instructions";
-import ViewerBackArrow from "./ViewerBackArrow";
 
-import { itemsList } from "./Grid";
+// https://codesandbox.io/s/19uq2u?file=/src/App.js:254-258
+
+export function calcPosFromAngles(inclination, azimuth) {
+	const vector = [0, 0, 0];
+	const theta = Math.PI * (inclination - 0.5);
+	const phi = 2 * Math.PI * (azimuth - 0.5);
+
+	vector[0] = Math.cos(phi);
+	vector[1] = Math.sin(theta);
+	vector[2] = Math.sin(phi);
+
+	return vector;
+}
 
 const ModelViewer = () => {
-	const items = itemsList();
-
-	const { name } = useParams();
-
-	var found = items.filter(function (item) {
-		return item.name === name;
+	// Leva controls
+	const config = useControls({
+		cameraFov: { value: 35, min: 2, max: 150, step: 0.001, onChange: (v) => {}, transient: false },
+		day: { value: 0, min: 0, max: 0.25, step: 0.0001, onChange: (v) => {}, transient: false },
+		autoRotate: { value: false, onChange: (v) => {}, transient: false },
+		POI: false,
 	});
 
-	const fbxPath = found[0].fbxPath;
+	// https://threejs.org/examples/#webgl_shaders_sky
+	let cameraPos = [50, 50, 50];
+	let near = 10;
+	let distance = 10000000;
+	let inclination = 0.66;
+	let azimuth = 0.5;
+	let stars = 0;
+	let mieCoefficient = 0.005;
+	let mieDirectionalG = 0.98;
 
-	let cameraFov = 50;
-	let cameraPosition = [10, 10, 10];
-	let cameraNearClip = 0.1;
-	let cameraFarClip = 1000000;
-	let cameraZoom = 1;
-
-	let modelPosition = [0, 0, 0];
-	let modelScale = [1, 1, 1]; // inside model the scale is remaped base on bounding sphere radius
+	// Bounds example:
+	// https://codesandbox.io/s/bounds-and-makedefault-rz2g0?file=/src/App.js
 
 	return (
 		<Suspense fallback={<Loading />}>
-			<ViewerBackArrow />
-			<Instructions />
-			<Canvas camera={{ position: cameraPosition, zoom: cameraZoom, fov: cameraFov, near: cameraNearClip, far: cameraFarClip }}>
+			<Canvas>
 				<ambientLight intensity={1} />
-				<Model path={fbxPath} position={modelPosition} scale={modelScale} />
-				{/* <Sky distance={450000} sunPosition={[0, 1000, 0]} inclination={0} azimuth={0.25} /> */}
-				<CameraControls />
+				<Center>
+					<Bounds fit clip observe margin={1.2}>
+						<Model showBillsBoards={config.POI} />
+					</Bounds>
+				</Center>
+				<OrbitControls autoRotate={config.autoRotate} /* maxPolarAngle={Math.PI / 2} */ />
+				<PerspectiveCamera makeDefault fov={config.cameraFov} position={cameraPos} near={near} far={distance} />
+				<Sky
+					distance={distance}
+					sunPosition={calcPosFromAngles(inclination, azimuth)}
+					inclination={inclination}
+					azimuth={azimuth}
+					mieCoefficient={mieCoefficient}
+					mieDirectionalG={mieDirectionalG}
+					rayleigh={config.day}
+					turbidity={config.day}
+				>
+					<Stars radius={distance} depth={50} count={stars ? 10000 : 0} factor={1} fade saturation={1} speed={0.5} noise={0.5} />
+				</Sky>
+				{false && (
+					<GizmoHelper alignment="bottom-right" margin={[80, 80]}>
+						<GizmoViewport axisColors={["#9d4b4b", "#2f7f4f", "#3b5b9d"]} labelColor="white" />
+					</GizmoHelper>
+				)}
 			</Canvas>
 		</Suspense>
 	);

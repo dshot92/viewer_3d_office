@@ -1,7 +1,7 @@
 
 :root {
-  --main-bg-color:                 rgb( 19,  19,  19);
-  --main-button-color:             rgb(22, 22, 22);
+  --main-bg-color:                 rgb(14, 15, 16);
+  --main-button-color:             rgb(14, 15, 16);
   --main-button-color-hover:       rgb(30, 30, 30);
 
   --main-text-color:               rgb(156, 156, 156);
@@ -16,10 +16,11 @@
   --main-transition-time:                         0.25s;
 }
 
-*  {
-    background-color: var(--main-bg-color);
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
+.gridTitle{
+    display: flex;
+    padding-bottom: 5%;
+    color:  var(--main-text-color);
+    justify-content: center;
 }
 
 .loader {
@@ -30,65 +31,29 @@
 	justify-content: center;
 }
 
-.back {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-	z-index: 10000;
-	margin: 3rem;
-    padding: 2rem;
-    border: none;
-
-    line-height: 1rem;
-    text-align: center;
-
-    color:  var(--main-text-color);
-    background-color: var(--main-button-color);
-    border-radius: 50%;
-
-    box-shadow:  0px 0px 50px black, /* Big Shadow to show over mesh*/
-    1px 1px 2px var(--main-bg-color_shadow),
-                -1px -1px 2px var(--main-bg-color_highlight);
-
-    transition: var(--main-transition-time) ease;
-}
-
-.back:hover {
-    background-color: var(--main-button-color-hover);
-
-    color: var(--main-text-color-hover);
-
-    box-shadow:  0px 0px 50px black, /* Big Shadow to show over mesh*/
-                 2px 2px 4px var(--main-bg-color_highlight),
-                -2px -2px 4px var(--main-bg-color_shadow);
-
-    text-shadow: 0px 0px  5px var(--main-text-color-hover-glow-white),
-                 0px 0px 15px var(--main-text-color-hover-glow-blue);
-}
-
 .container {
   padding: 10%;
 }
 
 .grid {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 2rem;
-	align-items: center;
 }
 
 .card {
 	padding: 1rem;
 	text-align: center;
+    width: 100%;
+    height: 100%;
     border: none;
-	width: 90%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 
     color:  var(--main-text-color);
     background-color: var(--main-button-color);
 
-    border-radius: 80px;
+    border-radius: 1rem;
     box-shadow:  2px 2px 4px var(--main-bg-color_shadow),
                 -2px -2px 4px var(--main-bg-color_highlight);
     transition: var(--main-transition-time) ease;
@@ -103,25 +68,12 @@
                  0px 0px 15px var(--main-text-color-hover-glow-blue);
 }
 
-.notFound {
-    width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-     color: var(--main-text-color-hover);
-}
-
 @media (max-width: 600px) {
 
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
-        grid-gap: 1.5rem;
-	}
-
-	.card {
-        width: 100%;
+        /* grid-gap: 1.5rem; */
 	}
 
 }
