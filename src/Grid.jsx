@@ -12,7 +12,10 @@ export const itemsList = () => {
 		{ name: "Santuario San Luca", fbxPath: "/models/Santuario_San_Luca.fbx" },
 		{ name: "Sella del Diavolo", fbxPath: "/models/Sella_del_Diavolo.fbx" },
 		{ name: "Allianz Stadium", fbxPath: "/models/Allianz_Stadium.fbx" },
-		{ name: "Luxor Resort & Casino", fbxPath: "/models/Luxor.fbx" },
+		{ name: "Luxor Resort & Casino 2", fbxPath: "/models/Luxor.fbx" },
+		{ name: "Ponte Vecchio", fbxPath: "/models/Ponte_Vecchio.fbx" },
+		{ name: "Monte Urpinu", fbxPath: "/models/Monte_Urpinu.fbx" },
+		{ name: "Liberty Statue", fbxPath: "/models/Liberty_Statue.fbx" },
 	];
 	return list;
 };
