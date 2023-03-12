@@ -17,6 +17,7 @@ export const itemsList = () => {
 		{ name: "Monte Urpinu", fbxPath: "/models/Monte_Urpinu.fbx" },
 		{ name: "Liberty Statue", fbxPath: "/models/Liberty_Statue.fbx" },
 		{ name: "MIB Building", fbxPath: "/models/MIB_Building.fbx" },
+		{ name: "CUS Cagliari", fbxPath: "/models/Cus_Cagliari.fbx" },
 	];
 	return list;
 };
