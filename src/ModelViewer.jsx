@@ -5,6 +5,8 @@ import { useControls } from "leva";
 
 import Model from "./Model";
 import Loading from "./Loading";
+import NotFound from "./NotFound";
+import ErrorBoundary from "./ErrorBoundary";
 
 // https://codesandbox.io/s/19uq2u?file=/src/App.js:254-258
 
@@ -43,35 +45,37 @@ const ModelViewer = () => {
 	// https://codesandbox.io/s/bounds-and-makedefault-rz2g0?file=/src/App.js
 
 	return (
-		<Suspense fallback={<Loading />}>
-			<Canvas>
-				<ambientLight intensity={1} />
-				<Center>
-					<Bounds fit clip observe margin={1.2}>
-						<Model showBillsBoards={config.POI} />
-					</Bounds>
-				</Center>
-				<OrbitControls autoRotate={config.autoRotate} /* maxPolarAngle={Math.PI / 2} */ />
-				<PerspectiveCamera makeDefault fov={config.cameraFov} position={cameraPos} near={near} far={distance} />
-				<Sky
-					distance={distance}
-					sunPosition={calcPosFromAngles(inclination, azimuth)}
-					inclination={inclination}
-					azimuth={azimuth}
-					mieCoefficient={mieCoefficient}
-					mieDirectionalG={mieDirectionalG}
-					rayleigh={config.day}
-					turbidity={config.day}
-				>
-					<Stars radius={distance} depth={50} count={stars ? 10000 : 0} factor={1} fade saturation={1} speed={0.5} noise={0.5} />
-				</Sky>
-				{false && (
-					<GizmoHelper alignment="bottom-right" margin={[80, 80]}>
-						<GizmoViewport axisColors={["#9d4b4b", "#2f7f4f", "#3b5b9d"]} labelColor="white" />
-					</GizmoHelper>
-				)}
-			</Canvas>
-		</Suspense>
+		<ErrorBoundary fallback={<NotFound />}>
+			<Suspense fallback={<Loading />}>
+				<Canvas>
+					<ambientLight intensity={1} />
+					<Center>
+						<Bounds fit clip observe margin={1.2}>
+							<Model showBillsBoards={config.POI} />
+						</Bounds>
+					</Center>
+					<OrbitControls autoRotate={config.autoRotate} /* maxPolarAngle={Math.PI / 2} */ />
+					<PerspectiveCamera makeDefault fov={config.cameraFov} position={cameraPos} near={near} far={distance} />
+					<Sky
+						distance={distance}
+						sunPosition={calcPosFromAngles(inclination, azimuth)}
+						inclination={inclination}
+						azimuth={azimuth}
+						mieCoefficient={mieCoefficient}
+						mieDirectionalG={mieDirectionalG}
+						rayleigh={config.day}
+						turbidity={config.day}
+					>
+						<Stars radius={distance} depth={50} count={stars ? 10000 : 0} factor={1} fade saturation={1} speed={0.5} noise={0.5} />
+					</Sky>
+					{false && (
+						<GizmoHelper alignment="bottom-right" margin={[80, 80]}>
+							<GizmoViewport axisColors={["#9d4b4b", "#2f7f4f", "#3b5b9d"]} labelColor="white" />
+						</GizmoHelper>
+					)}
+				</Canvas>
+			</Suspense>
+		</ErrorBoundary>
 	);
 };
 
