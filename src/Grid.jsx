@@ -19,6 +19,7 @@ export const itemsList = () => {
 		{ name: "MIB Building", fbxPath: "/models/MIB_Building.fbx" },
 		{ name: "CUS Cagliari", fbxPath: "/models/Cus_Cagliari.fbx" },
 		{ name: "Giants Stadium", fbxPath: "/models/Giants_Stadium.fbx" },
+		{ name: "Stonehenge", fbxPath: "/models/Stonehenge.fbx" },
 	];
 };
 

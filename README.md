@@ -1,44 +1,69 @@
 <!-- ![img_4286a-350x233](public\logo192.jpg) -->
 
-# <img src="public\logo192.jpg" width="40" height="40"> Online 3D Viewer
+# <img src="public\logo192.jpg" width="40" height="40"> Viewer-3D
 
-[Deployment Website](https://viewer-3d-one.vercel.app/)
+[Website Production](https://viewer-3d-one.vercel.app/)
+[Website Development](https://viewer-3d-git-development-dshot92.vercel.app/)
 
 ## Ingredients
 
-- React - A JavaScript library for building UIs
+- [React](https://reactjs.org/) - JavaScript 3D library
 - [Three.js](https://threejs.org/) - JavaScript 3D library
 - [React Three Fiber](https://github.com/pmndrs/react-three-fiber) - A React renderer for Three.js
-- [@react-three/drei](https://github.com/pmndrs/drei) - Useful helpers for Fiber
+- [React Three Drei](https://github.com/pmndrs/drei) - Useful helpers for Fiber
 
-## How to use
+## Usages
+
+### Install
+
+Install dependencies
 
 ```sh
 npm i
+```
+
+### How to run
+
+**Local server** in browser:
+
+```sh
 npm start
 ```
 
-To add a new mesh (fbx format) append a new object with the corresponding info in:
+## How to use
+
+### Add Models
+
+Paste fbx model in `public/models/` and edit the model list in `src/Grid.jsx` :
 
 ```jsx
-...
-const Grid = () => {
-	const items = [
-        { name: "test.fbx", path: "./models/test.fbx" },
-        { name: "Test_low.fbx", path: "./models/Test_low.fbx" },
-        ...
+// Grid.jsx
+export const itemsList = () => {
+    return [
+        { name: "Parco Monteclaro", fbxPath: "/models/Parco Monteclaro.fbx"},
         .
         .
-        ...
+        .
+        .
         { name: "<new object>", path: "./models/<new object>.fbx" },
     ];
-...
-```
-
-## Billboards
-
-Add Objects in the fbx with this naming scheme:
+};
 
 ```
-billboard${Name}
+
+### Billboards
+
+Add Objects in the fbx with this naming scheme
+
+(using Blender is best to set mesh and billboards in separate **Collections**):
+
+```txt
+
+Collection_Mesh
+    - MeshObject
+
+Collection_Billboards
+    - billboard${Name_0}
+    - ...
+    - billboard${Name_N}
 ```
