@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 
 export const itemsList = () => {
-	const list = [
+	return [
 		{ name: "Arc de Triomphe", fbxPath: "/models/Arc_de_Triomphe.fbx" },
 		{ name: "Christ the Redeemer", fbxPath: "/models/Christ_the_Redeemer.fbx" },
 		{ name: "San Marino", fbxPath: "/models/San_Marino_Solid.fbx" },
@@ -17,8 +17,8 @@ export const itemsList = () => {
 		{ name: "Monte Urpinu", fbxPath: "/models/Monte_Urpinu.fbx" },
 		{ name: "Liberty Statue", fbxPath: "/models/Liberty_Statue.fbx" },
 		{ name: "MIB Building", fbxPath: "/models/MIB_Building.fbx" },
+		{ name: "Giants Stadium", fbxPath: "/models/Giants_Stadium.fbx" },
 	];
-	return list;
 };
 
 const Grid = () => {
