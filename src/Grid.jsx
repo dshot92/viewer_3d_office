@@ -4,7 +4,6 @@ import Card from "./Card";
 
 export const itemsList = () => {
 	return [
-	return [
 		{ name: "Arc de Triomphe", fbxPath: "/models/Arc_de_Triomphe.fbx" },
 		{ name: "Christ the Redeemer", fbxPath: "/models/Christ_the_Redeemer.fbx" },
 		{ name: "San Marino", fbxPath: "/models/San_Marino_Solid.fbx" },
