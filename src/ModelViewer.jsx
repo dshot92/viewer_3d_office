@@ -28,7 +28,6 @@ const ModelViewer = () => {
 		cameraFov: { value: 35, min: 2, max: 150, step: 0.001, onChange: (v) => {}, transient: false },
 		day: { value: 0, min: 0, max: 0.25, step: 0.0001, onChange: (v) => {}, transient: false },
 		autoRotate: { value: false, onChange: (v) => {}, transient: false },
-		POI: false,
 	});
 
 	// https://threejs.org/examples/#webgl_shaders_sky
@@ -48,31 +47,17 @@ const ModelViewer = () => {
 		<ErrorBoundary fallback={<NotFound />}>
 			<Suspense fallback={<Loading />}>
 				<Canvas>
-					<ambientLight intensity={1} />
+					<ambientLight intensity={0.2} />
+					<pointLight position={[500, 400, 400]} intensity={0.1} />
+					<pointLight position={[230, 230, -400]} intensity={0.3} />
+					<pointLight position={[-300, -100, 100]} intensity={0.2} />
 					<Center>
 						<Bounds fit clip observe margin={1.2}>
-							<Model showBillsBoards={config.POI} />
+							<Model />
 						</Bounds>
 					</Center>
 					<OrbitControls autoRotate={config.autoRotate} /* maxPolarAngle={Math.PI / 2} */ />
 					<PerspectiveCamera makeDefault fov={config.cameraFov} position={cameraPos} near={near} far={distance} />
-					<Sky
-						distance={distance}
-						sunPosition={calcPosFromAngles(inclination, azimuth)}
-						inclination={inclination}
-						azimuth={azimuth}
-						mieCoefficient={mieCoefficient}
-						mieDirectionalG={mieDirectionalG}
-						rayleigh={config.day}
-						turbidity={config.day}
-					>
-						<Stars radius={distance} depth={50} count={stars ? 10000 : 0} factor={1} fade saturation={1} speed={0.5} noise={0.5} />
-					</Sky>
-					{false && (
-						<GizmoHelper alignment="bottom-right" margin={[80, 80]}>
-							<GizmoViewport axisColors={["#9d4b4b", "#2f7f4f", "#3b5b9d"]} labelColor="white" />
-						</GizmoHelper>
-					)}
 				</Canvas>
 			</Suspense>
 		</ErrorBoundary>

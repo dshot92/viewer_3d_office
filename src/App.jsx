@@ -6,8 +6,7 @@ import ModelViewer from "./ModelViewer";
 const App = () => {
 	return (
 		<Routes>
-			<Route exact path="/" element={<Grid />} />
-			<Route path=":name" element={<ModelViewer />} />
+			<Route path="/" element={<ModelViewer />} />
 		</Routes>
 	);
 };

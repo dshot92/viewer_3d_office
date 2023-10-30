@@ -1,43 +1,22 @@
-import { Link } from "react-router-dom";
-
-import Card from "./Card";
-
-export const itemsList = () => {
-	return [
-		{ name: "Arc de Triomphe", fbxPath: "/models/Arc_de_Triomphe.fbx" },
-		{ name: "Christ the Redeemer", fbxPath: "/models/Christ_the_Redeemer.fbx" },
-		{ name: "San Marino", fbxPath: "/models/San_Marino_Solid.fbx" },
-		{ name: "John Hopkins Uni", fbxPath: "/models/John_Hopkins_Uni_Solid.fbx" },
-		{ name: "Parco Monteclaro", fbxPath: "/models/Monteclaro_Solid_Layers_Billboards.fbx" },
-		{ name: "Santuario San Luca", fbxPath: "/models/Santuario_San_Luca.fbx" },
-		{ name: "Sella del Diavolo", fbxPath: "/models/Sella_del_Diavolo.fbx" },
-		{ name: "Allianz Stadium", fbxPath: "/models/Allianz_Stadium.fbx" },
-		{ name: "Luxor Resort & Casino 2", fbxPath: "/models/Luxor.fbx" },
-		{ name: "Ponte Vecchio", fbxPath: "/models/Ponte_Vecchio.fbx" },
-		{ name: "Monte Urpinu", fbxPath: "/models/Monte_Urpinu.fbx" },
-		{ name: "Liberty Statue", fbxPath: "/models/Liberty_Statue.fbx" },
-		{ name: "MIB Building", fbxPath: "/models/MIB_Building.fbx" },
-		{ name: "CUS Cagliari", fbxPath: "/models/Cus_Cagliari.fbx" },
-		{ name: "Giants Stadium", fbxPath: "/models/Giants_Stadium.fbx" },
-		{ name: "Stonehenge", fbxPath: "/models/Stonehenge.fbx" },
-	];
-};
+import { useFBX } from "@react-three/drei";
 
 const Grid = () => {
-	const items = itemsList();
+	const fbxPath = "/models/VROOM_Planimetry_v004.fbx";
+
+	const fbxModel = useFBX(fbxPath);
+
+	if (!fbxModel.boundingSphere) {
+		fbxModel.children[0].geometry.computeBoundingSphere();
+	}
+
+	let boundingSphereRadius = fbxModel.children[0].geometry.boundingSphere.radius;
+
 	return (
-		<div className="container">
-			<div className="gridTitle">
-				<h1>Viewer-3D</h1>
-			</div>
-			<div className="grid">
-				{items.map((item, index) => (
-					<Link key={index} to={item.name} state={item.fbxPath}>
-						<Card name={item.name} />
-					</Link>
-				))}
-			</div>
-		</div>
+		<>
+			<mesh scale={1 / boundingSphereRadius} position={[0, 0, 0]}>
+				<primitive object={fbxModel} dispose={null} />
+			</mesh>
+		</>
 	);
 };
 
