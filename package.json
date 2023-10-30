@@ -1,5 +1,5 @@
 {
-	"name": "viewer_3d",
+	"name": "viewer_3d_office",
 	"version": "0.1.1",
 	"private": true,
 	"homepage": ".",
@@ -20,7 +20,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:dshot92/viewer_3d.git"
+		"url": "git@github.com:dshot92/viewer_3d_office.git"
 	},
 	"scripts": {
 		"start": "react-scripts start",
