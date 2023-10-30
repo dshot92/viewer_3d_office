@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Bounds, OrbitControls, Sky, Stars, PerspectiveCamera, Center, GizmoHelper, GizmoViewport } from "@react-three/drei";
+import { Bounds, OrbitControls, PerspectiveCamera, Center } from "@react-three/drei";
 import { useControls } from "leva";
 
 import Model from "./Model";
@@ -26,7 +26,6 @@ const ModelViewer = () => {
 	// Leva controls
 	const config = useControls({
 		cameraFov: { value: 35, min: 2, max: 150, step: 0.001, onChange: (v) => {}, transient: false },
-		day: { value: 0, min: 0, max: 0.25, step: 0.0001, onChange: (v) => {}, transient: false },
 		autoRotate: { value: false, onChange: (v) => {}, transient: false },
 	});
 
@@ -34,11 +33,6 @@ const ModelViewer = () => {
 	let cameraPos = [50, 50, 50];
 	let near = 10;
 	let distance = 10000000;
-	let inclination = 0.66;
-	let azimuth = 0.5;
-	let stars = 0;
-	let mieCoefficient = 0.005;
-	let mieDirectionalG = 0.98;
 
 	// Bounds example:
 	// https://codesandbox.io/s/bounds-and-makedefault-rz2g0?file=/src/App.js

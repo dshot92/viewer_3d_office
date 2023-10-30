@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 
-import Grid from "./Grid";
 import ModelViewer from "./ModelViewer";
 
 const App = () => {

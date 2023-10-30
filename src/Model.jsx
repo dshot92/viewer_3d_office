@@ -1,8 +1,8 @@
 import { useFBX } from "@react-three/drei";
 
 const Model = (props) => {
-	const name = "Stonehenge";
-	const fbxPath = "/models/VROOM_Planimetry_v004.fbx";
+
+	const fbxPath = "/models/VROOM_Planimetry_v005.fbx";
 
 	const fbxModel = useFBX(fbxPath);
 
