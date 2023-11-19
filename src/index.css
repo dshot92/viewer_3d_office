@@ -18,3 +18,20 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+:root {
+	--main-bg-color:                 rgb(14, 15, 16);
+	--main-button-color:             rgb(14, 15, 16);
+	--main-button-color-hover:       rgb(30, 30, 30);
+
+	--main-text-color:               rgb(156, 156, 156);
+	--main-text-color-hover:         rgb(255, 255, 255);
+	--main-text-color-hover-glow-white:rgb(205, 205, 205);
+	--main-text-color-hover-glow-blue:rgb(166, 209, 211);
+
+	--main-bg-color_shadow:          rgb(  0,   0,   0);
+	--main-bg-color_highlight:       rgb( 93,  93,  93);
+
+	--main-border-color:             rgb(255, 255, 255);
+	--main-transition-time:                         0.25s;
+}

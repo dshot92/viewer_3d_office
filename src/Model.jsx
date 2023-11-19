@@ -2,7 +2,7 @@ import { useFBX } from "@react-three/drei";
 
 const Model = (props) => {
 
-	const fbxPath = "/models/VROOM_Planimetry_v005.fbx";
+	const fbxPath = "/models/VROOM_Planimetry_v006.fbx";
 
 	const fbxModel = useFBX(fbxPath);
 
